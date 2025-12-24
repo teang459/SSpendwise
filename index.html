@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpendWise | Expense Tracker</title>
+    
+    <!-- External Resources -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-50 text-slate-900 p-4 md:p-8">
+
+    <div class="max-w-2xl mx-auto">
+        
+        <!-- Header -->
+        <header class="flex items-center justify-between mb-8">
+            <div>
+                <h1 class="text-3xl font-bold text-indigo-600 flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+                    SpendWise
+                </h1>
+                <p class="text-slate-500 text-sm">Professional Portfolio Project</p>
+            </div>
+            <div class="bg-white p-2 rounded-full shadow-sm border border-slate-100">
+                <div class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 font-bold uppercase">Dev</div>
+            </div>
+        </header>
+
+        <!-- Financial Overview Card -->
+        <section class="bg-indigo-600 rounded-3xl p-8 text-white shadow-xl shadow-indigo-100 mb-8 relative overflow-hidden">
+            <div class="relative z-10">
+                <span class="text-indigo-100 text-sm uppercase tracking-wider font-semibold">Current Balance</span>
+                <h2 id="balance" class="text-5xl font-bold mt-1 tracking-tight">$0.00</h2>
+            </div>
+            <svg class="absolute right-[-20px] bottom-[-20px] w-48 h-48 text-indigo-500 opacity-30 rotate-12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg>
+        </section>
+
+        <!-- Summary Stats -->
+        <div class="grid grid-cols-2 gap-4 mb-8">
+            <article class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100">
+                <p class="text-slate-500 text-xs uppercase font-bold tracking-wider mb-1">Total Income</p>
+                <p id="income" class="text-xl font-bold text-emerald-600">+$0.00</p>
+            </article>
+            <article class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100">
+                <p class="text-slate-500 text-xs uppercase font-bold tracking-wider mb-1">Total Expenses</p>
+                <p id="expense" class="text-xl font-bold text-rose-600">-$0.00</p>
+            </article>
+        </div>
+
+        <main class="grid md:grid-cols-5 gap-8">
+            <aside class="md:col-span-2">
+                <h3 class="text-lg font-bold mb-4 flex items-center gap-2 text-slate-700">Add Transaction</h3>
+                <form id="form" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 sticky top-8">
+                    <div class="mb-4">
+                        <label for="text" class="block text-sm font-semibold text-slate-600 mb-1">Description</label>
+                        <input type="text" id="text" class="w-full p-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-indigo-500 transition-all bg-slate-50 focus:bg-white" placeholder="e.g. Netflix, Salary">
+                    </div>
+                    <div class="mb-4">
+                        <label for="amount" class="block text-sm font-semibold text-slate-600 mb-1">Amount ($)</label>
+                        <input type="number" id="amount" step="0.01" class="w-full p-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-indigo-500 transition-all bg-slate-50 focus:bg-white" placeholder="0.00">
+                    </div>
+                    <div class="mb-6">
+                        <label for="type" class="block text-sm font-semibold text-slate-600 mb-1">Type</label>
+                        <select id="type" class="w-full p-3 rounded-xl border border-slate-200 outline-none bg-slate-50 focus:bg-white focus:ring-2 focus:ring-indigo-500 transition-all appearance-none">
+                            <option value="expense">Expense</option>
+                            <option value="income">Income</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold hover:bg-indigo-700 transition-all shadow-lg active:scale-[0.98]">
+                        Save Transaction
+                    </button>
+                </form>
+            </aside>
+
+            <section class="md:col-span-3">
+                <h3 class="text-lg font-bold mb-4 text-slate-700">Recent Activity</h3>
+                <div id="list" class="space-y-3 max-h-[600px] overflow-y-auto pr-2">
+                    <!-- Dynamic Items Injected via JavaScript -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Link to your JavaScript file -->
+    <script src="js/script.js"></script>
+</body>
+</html>
